@@ -1,8 +1,30 @@
+using System.Net.Mail;
+
 namespace GestorContactoCLI;
 
 public class ContactoServices
 {
     private readonly ContactoRepository _data = new();
+
+    private static string Capitalizar(string texto)
+{
+    texto = texto.Trim().ToLower();
+
+    return char.ToUpper(texto[0]) + texto[1..];
+}
+private static bool EsCorreoValido(string correo)
+{
+    try
+    {
+        var direccion = new MailAddress(correo);
+
+        return direccion.Address == correo;
+    }
+    catch (FormatException)
+    {
+        return false;
+    }
+}
 
 
     //Requerimientos:
@@ -30,18 +52,15 @@ public class ContactoServices
         )
             return false;
 
-        if(!contacto.Correo.Contains('@'))
+        if (!EsCorreoValido(contacto.Correo.Trim()))
             return false;
 
-        if(
-            !contacto.Correo.EndsWith(".com")
-            && !contacto.Correo.EndsWith(".cl"))
-                return false;
+        string correoNormalizado = contacto.Correo.Trim().ToLowerInvariant();
         
         //corroborar si existe un correo igual
         var correoExistente = listaContacto
             .FirstOrDefault(g=> g.Correo.Equals
-                (contacto.Correo, StringComparison.OrdinalIgnoreCase));
+                (correoNormalizado, StringComparison.OrdinalIgnoreCase));
 
         if(correoExistente is not null)
             return false;
@@ -50,9 +69,9 @@ public class ContactoServices
         var nuevoContacto = new Contacto
         {
             Id = ultimoId + 1,
-            Nombre = char.ToUpper(contacto.Nombre[0]) + contacto.Nombre.Trim().ToLower()[1..],
-            Apellido = char.ToUpper(contacto.Apellido[0]) + contacto.Apellido.Trim().ToLower()[1..],
-            Correo = contacto.Correo.Trim().ToLower()
+            Nombre = Capitalizar(contacto.Nombre),
+            Apellido = Capitalizar(contacto.Apellido),
+            Correo = contacto.Correo.ToLower()
         };
 
         listaContacto.Add(nuevoContacto);
@@ -78,8 +97,11 @@ public class ContactoServices
         //que pasa si tengo mas usuarios con el mismo apellido o nombre
 
         var listaBuscada = listaContacto
-            .Where(n=> n.Nombre.Equals(buscar, StringComparison.OrdinalIgnoreCase) 
-            || n.Apellido.Equals(buscar, StringComparison.OrdinalIgnoreCase))
+            .Where(c =>
+                c.Nombre.Contains(buscar, StringComparison.OrdinalIgnoreCase)
+                ||
+                c.Apellido.Contains(buscar, StringComparison.OrdinalIgnoreCase)
+                )
             .ToList();
 
         //que pasa si el contacto no existe

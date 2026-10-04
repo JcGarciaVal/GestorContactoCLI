@@ -83,11 +83,10 @@ while (sistema)
 
             Console.Write("Seleccione id de contacto a eliminar: ");
                 while (!int.TryParse(Console.ReadLine(), out  idSeleccionar)
-                    || idSeleccionar < 0 
-                    || idSeleccionar > contactosEliminar.Count)
+                    || idSeleccionar <= 0 )
                 {
-                    Console.WriteLine("[!] id invalido");
-                    Console.Write("Id seleccionar: ");
+                    Console.WriteLine("[!] ID inválido.");
+                    Console.Write("Seleccione ID: ");
                 }
                 var contactoEliminado = services.EliminarContacto(idSeleccionar)
                 ? "Contacto eliminado."
