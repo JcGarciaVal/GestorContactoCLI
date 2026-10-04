@@ -1,0 +1,14 @@
+/home/juang/Projects/GestorContactoCLI/bin/Debug/net10.0/GestorContactoCLI
+/home/juang/Projects/GestorContactoCLI/bin/Debug/net10.0/GestorContactoCLI.deps.json
+/home/juang/Projects/GestorContactoCLI/bin/Debug/net10.0/GestorContactoCLI.runtimeconfig.json
+/home/juang/Projects/GestorContactoCLI/bin/Debug/net10.0/GestorContactoCLI.dll
+/home/juang/Projects/GestorContactoCLI/bin/Debug/net10.0/GestorContactoCLI.pdb
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/GestorContactoCLI.GeneratedMSBuildEditorConfig.editorconfig
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/GestorContactoCLI.AssemblyInfoInputs.cache
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/GestorContactoCLI.AssemblyInfo.cs
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/GestorContactoCLI.csproj.CoreCompileInputs.cache
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/GestorContactoCLI.dll
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/refint/GestorContactoCLI.dll
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/GestorContactoCLI.pdb
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/GestorContactoCLI.genruntimeconfig.cache
+/home/juang/Projects/GestorContactoCLI/obj/Debug/net10.0/ref/GestorContactoCLI.dll
