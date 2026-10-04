@@ -44,7 +44,7 @@ while (sistema)
 
             var validacionCreacion = services.RegistrarContacto(nuevoContacto)
                 ? "¡Contacto creado con exito!"
-                : throw new Exception("Problema al crear el contacto.\n");
+                : "No se pudo registrar el contacto. Verifique los datos.";
 
             Console.WriteLine(validacionCreacion + "\n");
         break;
@@ -90,7 +90,7 @@ while (sistema)
                 }
                 var contactoEliminado = services.EliminarContacto(idSeleccionar)
                 ? "Contacto eliminado."
-                : throw new Exception("Problema al eliminar contacto.");
+                : "No se pudo eliminar el contacto. Verifique los datos.";
                 Console.WriteLine(contactoEliminado);
         break;
 
